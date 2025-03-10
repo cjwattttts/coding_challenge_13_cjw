@@ -33,3 +33,15 @@ function addEmployee(name, position) { // creates employee card
             addEmployee(name, position);
     }
     });
+
+//TASK 3
+
+function highlightCards(){
+    const cards = document.querySelectorAll(".employee-card"); // selects all employee cards
+
+    Array.from(cards).forEach(card => { // converts nodelist to array + impliments highlight
+        card.style.border = "2px solid green"; // highlights green
+    });
+}
+
+highlightCards(); // tests function
