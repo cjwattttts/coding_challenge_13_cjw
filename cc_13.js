@@ -1,7 +1,12 @@
-//TASK 2
+//TASK 2 + 4
+
 // selects elements from the dom
 const employeeContainer = document.getElementById("employeeContainer"); 
 const addEmployeeButton = document.getElementById("addEmployeeButton");
+
+employeeContainer.addEventListener("click", function() { // event listener that logs clicks
+    console.log("Employee Card Clicked")
+});
 
 function addEmployee(name, position) { // creates employee card
     const card = document.createElement("div"); // creates a div for the employee card
@@ -17,12 +22,19 @@ function addEmployee(name, position) { // creates employee card
     removeButton.textContent = "Remove";
     removeButton.classList.add("remove-button");
 
+    removeButton.addEventListener("click", function (event) { // stops event propagation when removing
+        event.stopPropagation(); // stops bubbling
+        employeeContainer.removeChild(card);
+    });
+
     // appends elements 
     card.appendChild(nameHeading);
     card.appendChild(positionPara);
     card.appendChild(removeButton);
 
     employeeContainer.appendChild(card); // appends the card to the employee container
+
+    highlightCards(); // highlights cards
 }
 
     addEmployeeButton.addEventListener("click", function() { // adds event listener (click) to button
