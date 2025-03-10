@@ -1,4 +1,4 @@
-//TASK 2 + 4
+//TASK 2, 4, 5
 
 // selects elements from the dom
 const employeeContainer = document.getElementById("employeeContainer"); 
@@ -25,6 +25,14 @@ function addEmployee(name, position) { // creates employee card
     removeButton.addEventListener("click", function (event) { // stops event propagation when removing
         event.stopPropagation(); // stops bubbling
         employeeContainer.removeChild(card);
+    });
+
+    card.addEventListener("dblclick", function () {
+        const newName = prompt ("Input new name:", nameHeading.textContent) ; // prompts user to enter new name
+        const newPosition = prompt("Input new position:", positionPara.textContent); // prompts user to enter new position
+
+        if(newName) nameHeading.textContent = newName; // updates text content of name heading if name is entered
+        if(newPosition) positionPara.textContent = newPosition; // updates text content of position paragraph if posiiton is entered
     });
 
     // appends elements 
