@@ -24,7 +24,8 @@ function addEmployee(name, position) { // creates employee card
 
     removeButton.addEventListener("click", function (event) { // stops event propagation when removing
         event.stopPropagation(); // stops bubbling
-        employeeContainer.removeChild(card);
+        console.log("Remove button clicked."); 
+        employeeContainer.removeChild(card); // removes card from container
     });
 
     card.addEventListener("dblclick", function () {
